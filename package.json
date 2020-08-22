@@ -14,5 +14,8 @@
     },
     "devDependencies": {
         "nodemon": "^1.19.2"
+    },
+    "scripts": {
+        "start": "mkdir mongo-db; mongod --dbpath mongo-db"
     }
 }
