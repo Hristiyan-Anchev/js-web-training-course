@@ -4,7 +4,8 @@ const schema = {
     name:String,
     description:String,
     imageUrl:String,
-    difficultyLevel: Number
+    difficultyLevel: Number,
+    accessories:[{type:mongoose.Schema.ObjectId,ref:"accessory"}]
 };
 
 dumpData = function dumpData(){

@@ -25,8 +25,27 @@
         <p><span>Description:</span> {{description}}</p>
         <p><span>Difficulty level:</span> {{difficultyLevel}}</p>
         <a class="btn" href="/">Back</a>
+          <a class="btn" href="/attach/accessory/{{_id}}">Attach Accessory</a>
+          <a class="btn" href="/delete/{{_id}}">Delete Cube</a>
+
       </div>
     </main>
+      <h2>Accessories</h2>
+      <div class="accessories">
+      {{#each accessories}}
+          <div class="accessory">
+              <img src="{{imageUrl}}" alt="stickerName">
+              <h3>{{this.name}}</h3>
+              <p>{{this.description}}</p>
+              <a class="btnAcc" href="/remove/accessory/{{_id}}" >Remove Accessory</a>
+          </div>
+
+          {{else}}
+
+          <p>No accessories yet ... </p>
+      {{/each}}
+
+      </div>
   </div>
   <footer>@Cubicle: Exercise for Express.js and Handlebars</footer>
 </body>

@@ -1,11 +1,16 @@
 const models = require("../models/cube");
-module.exports = function(req,res){
+const mongoose = require("mongoose");
+module.exports = async function (req, res) {
 
-    const targetId = req.params._id;
-    models.findById(targetId).then(data => {
+    try {
+        const targetId = req.params._id;
+        const data = await models.findById(targetId);
+        console.log(data);
+        req.app.locals.cube_id = data._id;
+        res.render("details.hbs", data);
 
-        res.render("details.hbs",data);
-    }).catch(console.log);
-
+    } catch (e) {
+        console.log(e.message);
+    }
 
 }

@@ -23,14 +23,16 @@ function getAllData() {
 
 function findById(targetID) {
 
-    return Cube.findById(targetID).exec()
+    return Cube.findById(targetID)
+        .populate("accessories").lean()
+        .exec();
 
 }
 
 
 function create(name, description, imageUrl, difficultyLevel) {
 
-        const newCube = new Cube({name,description,imageUrl,difficultyLevel});
+        const newCube = new Cube({name,description,imageUrl,difficultyLevel,});
         return newCube.save()
 }
 
@@ -55,8 +57,8 @@ action = {
     findById,
     create,
     read,
-    // update,
-    // deleteCube
+    Cube
+
 }
 
 
